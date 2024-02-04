@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+:root{
+    --md-dark-color: #1d1d1d;
+    --dark-color: #171717;
+    --light-dark-color: #292929;
+    --yellow-color: #d4aa11;
+}
+
+/* --NavBar-- */ 
+#navbar{
+    width: 100%;
+    background-color: #121212;
+    padding: 0 50px;
+    /* position: fixed; */
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    /* width: 80%; */
+    margin: 10px;
+    background-color: #121212;
+}
+
+#imdb-icon{
+    background-color: #E1B517;
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;    
+    color: black;
+    cursor: pointer;
+}
+
+/* ---searchbar--- */
+.searchbar{
+    display: flex;
+    gap: 20px;
+    width: 35rem;
+    /* height: 100px; */
+    background: white;
+    border-radius: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+}
+#user-input-div{
+    width: 90%;
+    
+}
+#user-input{
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+#search-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#close-icon{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* height: 100%; */
+    cursor: pointer;
+    display: none;
+
+}
+
+/* ---nav-right-- */
+#nav-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-size:22px;
+}
+#nav-right a{ 
+    color: white;
+}
+
+/* --Hero-Container-- */
+.content-wrapper{
+    position: relative;
+}
+#hero-header{
+    font-size: 50px;
+    padding: 20px;
+}
+#hero-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 40px;
+    gap: 20px;
+}
+.card{
+    /* height: 30rem; */
+    width: 20rem;
+    padding: 10px;
+    background-color: #1A1A1A;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+}
+.card:hover{
+    background-color: #242424;
+    padding: 11px;
+}
+.poster{
+    border: 4px solid white;
+}
+.poster img{
+    width: 100%;
+    height: 25rem;
+    width: 18rem;
+}
+.title{
+    font-size: 20px;
+}
+.year{
+    font-size: 18px;
+    margin: 5px 0;
+}
+.add-fav{
+    width: 50%;
+    height: 35px;
+    color: white;
+    font-size: 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid salmon;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.add-fav:hover{
+    width: 52%;
+    height: 37px;
+    background-color: #272626;
+    /* background-color: salmon; */
+}
+
+
+/* ----Searched Movie list dialogue box---- */
+#movie-list-dialogue{
+    width: 35%;
+    background-color: white;
+    position: absolute;
+    top: -1.5%;
+    left: 28%;
+    padding: 20px;
+    z-index: 999;
+}
+#movielist{
+    list-style: none;
+    margin-bottom: 5px;
+    color: #121212;
+}
+
+#movielist hr{
+    margin-bottom: 10px;
+    
+}
+.movie{
+    display: flex;
+    gap: 20px;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.movie:hover{
+    background-color: lightgray;
+}
+.list-image{
+    width: 60px;
+
+}
+.list-image img{
+    width: 100%;
+}
+.hide-search-list{
+    display: none;
+}
+
+#no-movie{
+    display: flex;
+    columns: white;
+    font-size: 25px;
+}
+/* --Individual movie Page-- */
+#ind-movie-container{
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+#ind-movie-poster img{
+    width: 20rem;
+    border: 5px white solid;
+}
+
+.movie-info{
+    text-align: center;
+    color: #fff;
+    padding-top: 3rem;
+}
+.ind-movie-title{
+    font-size: 2rem;
+    color: var(--yellow-color);
+}
+.movie-misc-info{
+    list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 1rem;
+}
+.movie-info .year{
+    font-weight: 500;
+}
+.movie-info .rated{
+    background-color: var(--yellow-color);
+    padding: 0.4rem;
+    margin: 0 0.4rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+.movie-info .released{
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+.movie-info .writer{
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+.movie-info .genre{
+    background-color: var(--light-dark-color);
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+.movie-info .plot{
+    max-width: 400px;
+    margin: 1rem auto;
+}
+.movie-info .language{
+    color: var(--yellow-color);
+    font-style: italic;
+}
+.movie-info .awards{
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+}
+.movie-info .awards i{
+    color: var(--yellow-color);
+    margin: 1rem 0.7rem 0 0;
+}
+.ind-fav-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
