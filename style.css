@@ -215,6 +215,12 @@ a{
     font-size: 25px;
 }
 /* --Individual movie Page-- */
+.ind-movie-inner-container{
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    align-items: center;
+}
 #ind-movie-container{
     display: flex;
     gap: 6rem;
