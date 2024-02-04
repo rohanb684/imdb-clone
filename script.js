@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     homePageMovies(movie);
     loadFavorites();
     // console.log(favMovies);
-    // localStorage.clear();
+    // localStorage.clear();    
 })
 
 // ---function to fetch data on search---
@@ -180,19 +180,37 @@ async function showSearchedMovies(){
 
 // Add  or remove movie to favorites
 function addOrRemoveFav(event){
-    const cardEL = event.target.closest('.card');
+    let cardEL = event.target.closest('.card');
+    let posterElement;
+    let posterSrc;
+    let titleEL;
+    let yearEL;
+    let imdbId;
+    console.log("clicked");
+
+    if(cardEL == null){
+        cardEL = event.target.closest('.ind-movie-inner-container');
+        console.log(cardEL);
+        posterElement = cardEL.querySelector('.ind-poster-img');
+        posterSrc = posterElement.src;
+        titleEL = cardEL.querySelector('.movie-title').innerText;
+        yearEL = cardEL.querySelector('.year').innerText;
+    }else{
+        posterElement = cardEL.querySelector('.poster-img');
+         posterSrc = posterElement.src;
+        console.log(posterSrc);
+  
+        // Access other details as needed
+        titleEL = cardEL.querySelector('.title').innerText;
+        yearEL = cardEL.querySelector('.year').innerText;
+    }
+
     console.log(cardEL);
+    imdbId = cardEL.dataset.id;
 
-    const posterElement = cardEL.querySelector('.poster-img');
-      const posterSrc = posterElement.src;
-      console.log(posterSrc);
+   
 
-      // Access other details as needed
-      const titleEL = cardEL.querySelector('.title').innerText;
-      const yearEL = cardEL.querySelector('.year').innerText;
-
-
-    const imdbId = cardEL.dataset.id;
+    
 
     // console.log(imdbId);
     const movieIndex = favMovies.findIndex(movie => 
@@ -274,8 +292,9 @@ async function showMovieDetails(event){
 
     if(details.Response != "False"){
         let movieIndex = favMovies.findIndex((val) => id === val.id);
-        const addEL = `<div # = "ind-movie-poster">
-        <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
+        const addEL = `<div class="ind-movie-inner-container" data-id=${details.imdbID}>
+        <div id = "ind-movie-poster" class="ind-movie-poster" >
+        <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster" class="ind-poster-img">
         <div class="fav-btn ind-fav-btn" onClick = "addOrRemoveFav(event)">
                 <button class="add-fav" style="background-color: ${movieIndex === -1 ? 'transparent' : 'salmon'}">${movieIndex === -1 ? 'Add to Favorites' : 'Remove Favorites'}</button>
             </div> 
@@ -294,6 +313,7 @@ async function showMovieDetails(event){
         <p class = "language"><b>Language:</b> ${details.Language}</p>
         <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
         
+    </div>
     </div>`
     
     indMovieContainer.innerHTML = addEL;
