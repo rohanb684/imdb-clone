@@ -47,6 +47,7 @@ async function homePageMovies(movie){
     heroHeader.style.display = "flex";
     heroContainer.style.display = "flex";
     indMovieContainer.style.display = "none";
+    clearSearchBtn.style.display = "none";
 
     heroHeader.textContent = "Movie Suggestions";
     if(data.Response == "True"){
@@ -254,6 +255,7 @@ function saveFavorites() {
     heroContainer.style.display = "flex";
     indMovieContainer.style.display = "none";
     heroHeader.textContent = "Favorites";
+    clearSearchBtn.style.display = "none";
     searchInput.value = ""
     if(favMovies.length == 0){
         heroContainer.innerHTML = `<div id="no-movie"><p>No Movie added in favorites</p></div>`
