@@ -47,7 +47,7 @@ async function homePageMovies(movie){
     heroHeader.style.display = "flex";
     heroContainer.style.display = "flex";
     indMovieContainer.style.display = "none";
-    clearSearchBtn.style.display = "none";
+
 
     heroHeader.textContent = "Movie Suggestions";
     if(data.Response == "True"){
@@ -79,6 +79,7 @@ async function homePageMovies(movie){
 homeBtn.addEventListener("click", function(){
     homePageMovies(movie);
     searchInput.value = ""
+    clearSearchBtn.style.display = "none";
     currentPage = "home";
 })
 
